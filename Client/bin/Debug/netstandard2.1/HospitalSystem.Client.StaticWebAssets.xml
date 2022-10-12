@@ -1,0 +1,4 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/" Path="C:\Users\rikesh\source\repos\HospitalSystem\Client\bin\Debug\netstandard2.1\wwwroot\" />
+  <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="C:\Users\rikesh\.nuget\packages\microsoft.aspnetcore.components.webassembly.authentication\5.0.4\build\..\staticwebassets\" />
+</StaticWebAssets>

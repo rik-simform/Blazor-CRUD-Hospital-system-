@@ -1,0 +1,85 @@
+﻿@page "/patient/{Id}"
+@using HospitalSystem.Shared
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+<h2>Delete Person</h2>
+@if (patient != null)
+{
+    <p>Are you sure you want to delete this person with Name: <b>@patient.FirstName + @patient.LastName</b></p>
+    <div class="row">
+        <table class="table">
+            <tr>
+                <td>First Name</td>
+                <td>@patient.FirstName</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>@patient.LastName</td>
+            </tr>
+            <tr>
+                <td>Birth Date</td>
+                <td>@patient.BirthDate</td>
+            </tr>
+            <tr>
+                <td>Weight</td>
+                <td>@patient.Weight</td>
+            </tr>
+            <tr>
+                <td>Blood Group</td>
+                <td>@patient.BloodGroup</td>
+            </tr>
+            <tr>
+                <td>Weight</td>
+                <td>@patient.Weight</td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td>@patient.Mobile</td>
+            </tr>
+            <tr>
+                <td>Guardian Name</td>
+                <td>@patient.GuardianName</td>
+            </tr>
+            <tr>
+                <td>Guardian Contact</td>
+                <td>@patient.GuardianContact</td>
+            </tr>
+            <tr>
+                <td>Last Checkup Date</td>
+                <td>@patient.LastCheckUpDate</td>
+            </tr>
+        </table>
+    </div>
+}
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Deleted" value="Delete" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    Patient patient = new Patient();
+    protected override async Task OnInitializedAsync()
+    {
+        patient = await Http.GetFromJsonAsync<Patient>("api/patient/" + Id);
+    }
+    protected async Task Deleted()
+    {
+        var response = await Http.DeleteAsync("api/Patient/" + Id);
+        bool deleteResponse = await response.Content.ReadFromJsonAsync<bool>();
+        if (deleteResponse)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Deleted Successfully!");
+            NavigationManager.NavigateTo("/patient");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("/patient");
+    }
+}

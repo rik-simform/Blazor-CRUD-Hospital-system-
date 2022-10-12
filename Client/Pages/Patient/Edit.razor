@@ -1,0 +1,94 @@
+﻿@page "/patient/Edit/{Id}"
+@using HospitalSystem.Shared
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+<h2>Edit Person</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="FirstName"> First Name *</label>
+            <input form="FirstName" class="form-control" @bind="@patient.FirstName" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="LastName"> Last Name *</label>
+            <input form="LastName" class="form-control" @bind="@patient.LastName" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="BirthDate"> Birth Date *</label>
+            <input form="BirthDate" class="form-control" @bind="@patient.BirthDate" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Weight"> Weight *</label>
+            <input form="Weight" class="form-control" @bind="@patient.Weight" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="BloodGroup"> Blood Group *</label>
+            <input form="BloodGroup" class="form-control" @bind="@patient.BloodGroup" />
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Mobile"> Mobile *</label>
+            <input form="Mobile" class="form-control" @bind="@patient.Mobile" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="GuardianName"> Guardian Name *</label>
+            <input form="GuardianName" class="form-control" @bind="@patient.GuardianName" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="GuardianContact"> Guardian Contact *</label>
+            <input form="GuardianContact" class="form-control" @bind="@patient.GuardianContact" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="LastCheckUpDate"> Last Checkup Date *</label>
+            <input form="LastCheckUpDate" type="datetime" class="form-control" @bind="@patient.LastCheckUpDate" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Save" value="Save" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    Patient patient = new Patient();
+    protected override async Task OnInitializedAsync()
+    {
+        patient = await Http.GetFromJsonAsync<Patient>("api/patient/" + Id);
+    }
+    protected async Task Save()
+    {
+        var response = await Http.PutAsJsonAsync("api/patient/" + Id, patient);
+        bool docResponse = await response.Content.ReadFromJsonAsync<bool>();
+        if (docResponse)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Updated Successfully!");
+            NavigationManager.NavigateTo("/patient");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("/patient");
+    }
+}

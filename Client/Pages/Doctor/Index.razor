@@ -1,0 +1,70 @@
+﻿@page "/doctor"
+@inject HttpClient Http
+@attribute [Authorize(Roles = "Doctor")]
+@inject HttpClient httpClient
+@using HospitalSystem.Client.Authentication
+@inject AuthenticationStateProvider authStateProvider
+@inject NavigationManager navManager
+@using System.Net.Http.Headers
+
+<h1>Doctor Data</h1>
+
+<p>
+    <a href="/doctor/Create">Create</a>
+</p>
+
+@if (docList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Specialisation</th>
+                <th>Certificate / Degree</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var doc in docList)
+            {
+                <tr>
+                    <td>@doc.Id</td>
+                    <td>@doc.Name</td>
+                    <td>@doc.Email</td>
+                    <td>@doc.Specialisation</td>
+                    <td>@doc.CertificateDegree</td>
+                    <td>
+                        <a href='/doctor/edit/@doc.Id'>Edit</a>  |
+                        <a href='/doctor/delete/@doc.Id'>Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    IEnumerable<Doctor> docList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var customStateProvider = (CustomAuthenticationstateProvider)authStateProvider;
+        var token = await customStateProvider.GetToken();
+        if (!string.IsNullOrWhiteSpace(token))
+        {
+            Http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+            docList = await Http.GetFromJsonAsync<IEnumerable<Doctor>>("/api/doctor/").ConfigureAwait(false);
+        }
+        else
+        {
+            navManager.NavigateTo("/login");
+        }
+
+        // docList = await Http.GetFromJsonAsync<IEnumerable<Doctor>>("/api/doctor/").ConfigureAwait(false);
+    }
+}

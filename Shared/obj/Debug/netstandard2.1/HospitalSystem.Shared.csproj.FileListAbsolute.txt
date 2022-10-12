@@ -1,0 +1,9 @@
+C:\Users\rikesh\source\repos\HospitalSystem\Shared\bin\Debug\netstandard2.1\HospitalSystem.Shared.deps.json
+C:\Users\rikesh\source\repos\HospitalSystem\Shared\bin\Debug\netstandard2.1\HospitalSystem.Shared.dll
+C:\Users\rikesh\source\repos\HospitalSystem\Shared\bin\Debug\netstandard2.1\HospitalSystem.Shared.pdb
+C:\Users\rikesh\source\repos\HospitalSystem\Shared\obj\Debug\netstandard2.1\HospitalSystem.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rikesh\source\repos\HospitalSystem\Shared\obj\Debug\netstandard2.1\HospitalSystem.Shared.AssemblyInfoInputs.cache
+C:\Users\rikesh\source\repos\HospitalSystem\Shared\obj\Debug\netstandard2.1\HospitalSystem.Shared.AssemblyInfo.cs
+C:\Users\rikesh\source\repos\HospitalSystem\Shared\obj\Debug\netstandard2.1\HospitalSystem.Shared.csproj.CoreCompileInputs.cache
+C:\Users\rikesh\source\repos\HospitalSystem\Shared\obj\Debug\netstandard2.1\HospitalSystem.Shared.dll
+C:\Users\rikesh\source\repos\HospitalSystem\Shared\obj\Debug\netstandard2.1\HospitalSystem.Shared.pdb

@@ -1,0 +1,61 @@
+﻿@page "/doctor/create"
+
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+
+<h1>Create</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="Name" class="control-label">Name</label>
+                <input for="Name" class="form-control" @bind="@doc.Name" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email</label>
+                <input asp-for="Email" class="form-control" @bind="@doc.Email" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label">Specialisation</label>
+                <input asp-for="Location" class="form-control" @bind="@doc.Specialisation" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label">Cetificate/Degree</label>
+                <input asp-for="Phone" class="form-control" @bind="doc.CertificateDegree" />
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="button" class="btn btn-primary" @onclick="@Save" value="Save" />
+                        <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@code {
+    Doctor doc = new Doctor();
+    protected override async Task OnInitializedAsync()
+    {
+    }
+    protected async Task Save()
+    {
+        var response = await Http.PostAsJsonAsync("api/doctor", @doc);
+        Doctor docResponse = await response.Content.ReadFromJsonAsync<Doctor>();
+        if (docResponse?.Id > 0)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Saved Successfully!");
+            NavigationManager.NavigateTo("/doctor");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("/doctor");
+    }
+}

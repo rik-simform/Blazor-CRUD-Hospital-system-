@@ -1,0 +1,60 @@
+﻿@page "/patient"
+@inject HttpClient Http
+
+<h1>Doctor Data</h1>
+
+<p>
+    <a href="/Patient/Create">Create</a>
+</p>
+
+@if (patientList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Birth Date</th>
+                <th>Blood Group</th>
+                <th>Weight</th>
+                <th>Mobile</th>
+                <th>Guardian Name</th>
+                <th>Guardian Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var patient in patientList)
+            {
+                <tr>
+                    <td>@patient.Id</td>
+                    <td>@patient.FirstName</td>
+                    <td>@patient.LastName</td>
+                    <td>@patient.BirthDate</td>
+                    <td>@patient.BloodGroup</td>
+                    <th>@patient.Weight</th>
+                    <th>@patient.Mobile</th>
+                    <td>@patient.GuardianName</td>
+                    <td>@patient.GuardianContact</td>
+                    <td>
+                        <a href='/patient/edit/@patient.Id'>Edit</a>  |
+                        <a href='/patient/delete/@patient.Id'>Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    Patient[] patientList;
+
+    protected override async Task OnInitializedAsync()
+    {
+       patientList = await Http.GetFromJsonAsync<Patient[]>("/api/patient/");
+    }
+}

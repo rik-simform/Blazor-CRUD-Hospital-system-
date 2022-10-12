@@ -1,0 +1,81 @@
+﻿@page "/patient/create"
+
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+
+<h1>Create</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="Name" class="control-label">First Name</label>
+                <input for="Name" class="form-control" @bind="@patient.FirstName" />
+            </div>
+            <div class="form-group">
+                <label asp-for="JoiningDate" class="control-label">Last Name</label>
+                <input asp-for="JoiningDate" class="form-control" @bind="@patient.LastName" />
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label">BirthDate</label>
+                <input asp-for="BirthDate" class="form-control" @bind="@patient.BirthDate" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label">Weight</label>
+                <input asp-for="Weight" class="form-control" @bind="@patient.Weight" />
+            </div>
+            <div class="form-group">
+                <label asp-for="BloodGroup" class="control-label">Blood Group</label>
+                <input asp-for="BloodGroup" class="form-control" @bind="@patient.BloodGroup" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Mobile" class="control-label">Mobile</label>
+                <input asp-for="Mobile" class="form-control" @bind="@patient.Mobile" />
+            </div>
+            <div class="form-group">
+                <label asp-for="GuardianName" class="control-label">Guardian Name</label>
+                <input asp-for="GuardianName" class="form-control" @bind="@patient.GuardianName" />
+            </div>
+            <div class="form-group">
+                <label asp-for="GuardianContact" class="control-label">Guardian Contact</label>
+                <input asp-for="GuardianContact" class="form-control" @bind="@patient.GuardianContact" />
+            </div>
+            <div class="form-group">
+                <label asp-for="LastCheckUpDate" class="control-label">Last Checkup Date</label>
+                <input asp-for="LastCheckUpDate" class="form-control" @bind="@patient.LastCheckUpDate" />
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="button" class="btn btn-primary" @onclick="@Save" value="Save" />
+                        <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@code {
+    Patient patient = new Patient();
+    protected override async Task OnInitializedAsync()
+    {
+    }
+    protected async Task Save()
+    {
+        var response = await Http.PostAsJsonAsync("api/nurse", @patient);
+        Patient docResponse = await response.Content.ReadFromJsonAsync<Patient>();
+        if (docResponse?.Id > 0)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Saved Successfully!");
+            NavigationManager.NavigateTo("/patient");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("/patient");
+    }
+}

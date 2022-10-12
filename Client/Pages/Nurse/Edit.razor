@@ -1,0 +1,63 @@
+﻿@page "/nurse/Edit/{Id}"
+@using HospitalSystem.Shared
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+<h2>Edit Person</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Name"> Name *</label>
+            <input form="Name" class="form-control" @bind="@nurse.Name" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="JoiningDate"> Joining Date *</label>
+            <input form="JoiningDate" class="form-control" @bind="@nurse.JoiningDate" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="BirthDate"> Birth Date *</label>
+            <input form="BirthDate" class="form-control" @bind="@nurse.BirthDate" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="ShiftTime"> ShiftTime *</label>
+            <input form="ShiftTime" class="form-control" @bind="@nurse.ShiftTime" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Save" value="Save" />
+            <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    Nurse nurse = new Nurse();
+    protected override async Task OnInitializedAsync()
+    {
+        nurse = await Http.GetFromJsonAsync<Nurse>("api/nurse/" + Id);
+    }
+    protected async Task Save()
+    {
+        var response = await Http.PutAsJsonAsync("api/nurse/" + Id, @nurse);
+        bool docResponse = await response.Content.ReadFromJsonAsync<bool>();
+        if (docResponse)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Updated Successfully!");
+            NavigationManager.NavigateTo("/nurse");
+        }
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("/nurse");
+    }
+}

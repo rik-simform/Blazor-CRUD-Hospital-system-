@@ -1,0 +1,72 @@
+﻿@page "/nurse"
+@inject HttpClient Http
+@attribute [Authorize(Roles = "Doctor")]
+@inject HttpClient httpClient
+@using HospitalSystem.Client.Authentication
+@inject AuthenticationStateProvider authStateProvider
+@inject NavigationManager navManager
+@using System.Net.Http.Headers
+
+<h1>Nurse Data</h1>
+
+<p>
+    <a href="/Nurse/Create">Create</a>
+</p>
+
+@if (nurseList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Joining Date</th>
+                <th>Birth Date</th>
+                <th>Shift Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var nurse in nurseList)
+            {
+                <tr>
+                    <td>@nurse.Id</td>
+                    <td>@nurse.Name</td>
+                    <td>@nurse.JoiningDate</td>
+                    <td>@nurse.BirthDate</td>
+                    <td>@nurse.ShiftTime</td>
+                    <td>
+                        <a href='/Nurse/edit/@nurse.Id'>Edit</a>  |
+                        <a href='/Nurse/delete/@nurse.Id'>Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    Nurse[] nurseList;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        var customStateProvider = (CustomAuthenticationstateProvider)authStateProvider;
+        var token = await customStateProvider.GetToken();
+        if (!string.IsNullOrWhiteSpace(token))
+        {
+             Http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+             nurseList = await Http.GetFromJsonAsync<Nurse[]>("/api/nurse/Index");
+        }
+        else
+        {
+            navManager.NavigateTo("/login");
+        }
+
+        //var nurseList = await Http.GetFromJsonAsync<Nurse[]>("/api/Nurse/Index");
+
+    }
+}
