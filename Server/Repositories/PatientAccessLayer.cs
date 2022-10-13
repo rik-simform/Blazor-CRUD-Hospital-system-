@@ -42,11 +42,11 @@ namespace HospitalSystem.Server.Repositories
             }
         }
 
-        public IEnumerable<Patient> GetAllPatients()
+        public async Task<IEnumerable<Patient>> GetAllPatients()
         {
             try
             {
-                return _context.Patients.ToList();
+                return await _context.Patients.ToListAsync();
             }
             catch (Exception ex)
             {

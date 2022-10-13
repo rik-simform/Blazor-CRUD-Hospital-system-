@@ -1,17 +1,23 @@
 ﻿@page "/nurse"
 @inject HttpClient Http
-@attribute [Authorize(Roles = "Doctor")]
+@attribute [Authorize(Roles = "Doctor, Nurse")]
 @inject HttpClient httpClient
 @using HospitalSystem.Client.Authentication
 @inject AuthenticationStateProvider authStateProvider
 @inject NavigationManager navManager
 @using System.Net.Http.Headers
 
+
+
 <h1>Nurse Data</h1>
+
+
 
 <p>
     <a href="/Nurse/Create">Create</a>
 </p>
+
+
 
 @if (nurseList == null)
 {
@@ -48,25 +54,35 @@ else
     </table>
 }
 
+
+
 @code {
     Nurse[] nurseList;
 
+
+
     protected override async Task OnInitializedAsync()
     {
+
+
 
         var customStateProvider = (CustomAuthenticationstateProvider)authStateProvider;
         var token = await customStateProvider.GetToken();
         if (!string.IsNullOrWhiteSpace(token))
         {
-             Http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
-             nurseList = await Http.GetFromJsonAsync<Nurse[]>("/api/nurse/Index");
+            Http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+            nurseList = await Http.GetFromJsonAsync<Nurse[]>("/api/nurse/");
         }
         else
         {
             navManager.NavigateTo("/login");
         }
 
+
+
         //var nurseList = await Http.GetFromJsonAsync<Nurse[]>("/api/Nurse/Index");
+
+
 
     }
 }

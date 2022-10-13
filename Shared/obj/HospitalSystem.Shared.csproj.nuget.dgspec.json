@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rikesh\\source\\repos\\HospitalSystem\\Shared\\HospitalSystem.Shared.csproj": {}
+    "C:\\Users\\rikesh\\Music\\HospitalSystemsBlazor\\Shared\\HospitalSystem.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rikesh\\source\\repos\\HospitalSystem\\Shared\\HospitalSystem.Shared.csproj": {
+    "C:\\Users\\rikesh\\Music\\HospitalSystemsBlazor\\Shared\\HospitalSystem.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rikesh\\source\\repos\\HospitalSystem\\Shared\\HospitalSystem.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\rikesh\\Music\\HospitalSystemsBlazor\\Shared\\HospitalSystem.Shared.csproj",
         "projectName": "HospitalSystem.Shared",
-        "projectPath": "C:\\Users\\rikesh\\source\\repos\\HospitalSystem\\Shared\\HospitalSystem.Shared.csproj",
+        "projectPath": "C:\\Users\\rikesh\\Music\\HospitalSystemsBlazor\\Shared\\HospitalSystem.Shared.csproj",
         "packagesPath": "C:\\Users\\rikesh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rikesh\\source\\repos\\HospitalSystem\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\rikesh\\Music\\HospitalSystemsBlazor\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

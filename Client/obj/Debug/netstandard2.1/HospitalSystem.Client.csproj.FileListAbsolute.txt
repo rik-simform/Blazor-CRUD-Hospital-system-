@@ -416,6 +416,6 @@ C:\Users\rikesh\source\repos\HospitalSystem\Client\obj\Debug\netstandard2.1\Razo
 C:\Users\rikesh\source\repos\HospitalSystem\Client\obj\Debug\netstandard2.1\RazorDeclaration\Pages\Patient\Edit.razor.g.cs
 C:\Users\rikesh\source\repos\HospitalSystem\Client\obj\Debug\netstandard2.1\Razor\Pages\Patient\Delete.razor.g.cs
 C:\Users\rikesh\source\repos\HospitalSystem\Client\obj\Debug\netstandard2.1\Razor\Pages\Patient\Edit.razor.g.cs
-C:\Users\rikesh\source\repos\HospitalSystem\Client\obj\Debug\netstandard2.1\integrity\TB4yqYF6v4PahKDBkXsKK1SV-FUUJftUeFaaT8v8qXY=.hash
-C:\Users\rikesh\source\repos\HospitalSystem\Client\obj\Debug\netstandard2.1\integrity\rQ9h2k-ccONFJ_IrKdRq0s5UMnElzijhL9JKx7qhGXs=.hash
-C:\Users\rikesh\source\repos\HospitalSystem\Client\obj\Debug\netstandard2.1\integrity\WEblQbx4OijQrCrAFYyTLYm5IiQixWutQmSzEZZSfvY=.hash
+C:\Users\rikesh\source\repos\HospitalSystem\Client\obj\Debug\netstandard2.1\integrity\9FuZRQ6XcX_k2R4eYImMespuYJ0h9ID8sNeJYnrEYsU=.hash
+C:\Users\rikesh\source\repos\HospitalSystem\Client\obj\Debug\netstandard2.1\integrity\y2domrImLyD8yMiateqspzdYVvIl9LWCXrcA-EW3ET8=.hash
+C:\Users\rikesh\source\repos\HospitalSystem\Client\obj\Debug\netstandard2.1\integrity\JDA0kZH1EmatOpd146zEk32A4-yJgrQSKZYH8YdxrEE=.hash

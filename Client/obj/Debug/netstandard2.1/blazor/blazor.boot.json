@@ -6,7 +6,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
-      "HospitalSystem.Client.dll": "sha256-TB4yqYF6v4PahKDBkXsKK1SV\/FUUJftUeFaaT8v8qXY=",
+      "HospitalSystem.Client.dll": "sha256-9FuZRQ6XcX+k2R4eYImMespuYJ0h9ID8sNeJYnrEYsU=",
       "System.Text.Json.dll": "sha256-HQeN+ZfHAERO+uW0fP0J9J3WV1hQ3vUIOWbqGSYBPp8=",
       "System.Runtime.CompilerServices.Unsafe.dll": "sha256-kL\/omZDwqByAi+lPdMeDmr3XjHcn4RVb+LmZ4mut1Yc=",
       "mscorlib.dll": "sha256-BaZPMj95+YNe3G4ckTGD6szZFwZeA2MOHn91zTGKDeU=",
@@ -65,7 +65,7 @@
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-czNf3btAeBW\/vvID5LAfgcsNZ+GM3ssVuPaMflcg0rs="
     },
     "pdb": {
-      "HospitalSystem.Client.pdb": "sha256-rQ9h2k\/ccONFJ+IrKdRq0s5UMnElzijhL9JKx7qhGXs=",
+      "HospitalSystem.Client.pdb": "sha256-y2domrImLyD8yMiateqspzdYVvIl9LWCXrcA\/EW3ET8=",
       "HospitalSystem.Shared.pdb": "sha256-5A9WwvIV2s+4+w27iSLgG7yS7s\/hhKEHV65uC6yGAa8="
     },
     "runtime": {

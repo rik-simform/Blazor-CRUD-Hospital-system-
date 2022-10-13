@@ -7,3 +7,4 @@ C:\Users\rikesh\source\repos\HospitalSystem\Shared\obj\Debug\netstandard2.1\Hosp
 C:\Users\rikesh\source\repos\HospitalSystem\Shared\obj\Debug\netstandard2.1\HospitalSystem.Shared.csproj.CoreCompileInputs.cache
 C:\Users\rikesh\source\repos\HospitalSystem\Shared\obj\Debug\netstandard2.1\HospitalSystem.Shared.dll
 C:\Users\rikesh\source\repos\HospitalSystem\Shared\obj\Debug\netstandard2.1\HospitalSystem.Shared.pdb
+C:\Users\rikesh\source\repos\HospitalSystem\Shared\obj\Debug\netstandard2.1\HospitalSystem.Shared.csproj.AssemblyReference.cache

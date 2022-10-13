@@ -133,7 +133,7 @@ using HospitalSystem.Shared;
     }
     void Cancel()
     {
-        NavigationManager.NavigateTo("/doctor");
+        NavigationManager.NavigateTo("/nurse");
     }
 
 #line default

@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\TB4yqYF6v4PahKDBkXsKK1SV-FUUJftUeFaaT8v8qXY=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\9FuZRQ6XcX_k2R4eYImMespuYJ0h9ID8sNeJYnrEYsU=.hash",
       "Source": "C:\\Users\\rikesh\\source\\repos\\HospitalSystem\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\HospitalSystem.Client.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/HospitalSystem.Client.dll.br"
     },
@@ -286,7 +286,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\rQ9h2k-ccONFJ_IrKdRq0s5UMnElzijhL9JKx7qhGXs=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\y2domrImLyD8yMiateqspzdYVvIl9LWCXrcA-EW3ET8=.hash",
       "Source": "C:\\Users\\rikesh\\source\\repos\\HospitalSystem\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\HospitalSystem.Client.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/HospitalSystem.Client.pdb.br"
     },
@@ -316,7 +316,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\WEblQbx4OijQrCrAFYyTLYm5IiQixWutQmSzEZZSfvY=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\JDA0kZH1EmatOpd146zEk32A4-yJgrQSKZYH8YdxrEE=.hash",
       "Source": "C:\\Users\\rikesh\\source\\repos\\HospitalSystem\\Client\\obj\\Debug\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.br"
     }

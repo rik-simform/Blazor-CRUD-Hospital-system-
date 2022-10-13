@@ -8,7 +8,7 @@ namespace HospitalSystem.Server.Repositories
 {
     public interface IPatientRepo
     {
-        IEnumerable<Patient> GetAllPatients();
+        Task<IEnumerable<Patient>> GetAllPatients();
         void AddPatient(Patient patient);
         void UpdatePatient(Patient patient);
         Patient GetPatientById(long id);

@@ -112,7 +112,7 @@ using System.Net.Http.Headers;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\rikesh\source\repos\HospitalSystem\Client\Pages\Nurse\Index.razor"
-           [Authorize(Roles = "Doctor")]
+           [Authorize(Roles = "Doctor, Nurse")]
 
 #line default
 #line hidden
@@ -126,26 +126,34 @@ using System.Net.Http.Headers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 51 "C:\Users\rikesh\source\repos\HospitalSystem\Client\Pages\Nurse\Index.razor"
+#line 59 "C:\Users\rikesh\source\repos\HospitalSystem\Client\Pages\Nurse\Index.razor"
        
     Nurse[] nurseList;
 
+
+
     protected override async Task OnInitializedAsync()
     {
+
+
 
         var customStateProvider = (CustomAuthenticationstateProvider)authStateProvider;
         var token = await customStateProvider.GetToken();
         if (!string.IsNullOrWhiteSpace(token))
         {
-             Http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
-             nurseList = await Http.GetFromJsonAsync<Nurse[]>("/api/nurse/Index");
+            Http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+            nurseList = await Http.GetFromJsonAsync<Nurse[]>("/api/nurse/");
         }
         else
         {
             navManager.NavigateTo("/login");
         }
 
+
+
         //var nurseList = await Http.GetFromJsonAsync<Nurse[]>("/api/Nurse/Index");
+
+
 
     }
 

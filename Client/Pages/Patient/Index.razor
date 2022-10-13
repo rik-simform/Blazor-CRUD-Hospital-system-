@@ -1,11 +1,17 @@
 ﻿@page "/patient"
 @inject HttpClient Http
 
-<h1>Doctor Data</h1>
+
+
+<h1>Patients Data</h1>
+
+
 
 <p>
     <a href="/Patient/Create">Create</a>
 </p>
+
+
 
 @if (patientList == null)
 {
@@ -50,11 +56,15 @@ else
     </table>
 }
 
+
+
 @code {
     Patient[] patientList;
 
+
+
     protected override async Task OnInitializedAsync()
     {
-       patientList = await Http.GetFromJsonAsync<Patient[]>("/api/patient/");
+        patientList = await Http.GetFromJsonAsync<Patient[]>("/api/patient/");
     }
 }

@@ -105,13 +105,15 @@ using HospitalSystem.Shared.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 53 "C:\Users\rikesh\source\repos\HospitalSystem\Client\Pages\Patient\Index.razor"
+#line 61 "C:\Users\rikesh\source\repos\HospitalSystem\Client\Pages\Patient\Index.razor"
        
     Patient[] patientList;
 
+
+
     protected override async Task OnInitializedAsync()
     {
-       patientList = await Http.GetFromJsonAsync<Patient[]>("/api/patient/");
+        patientList = await Http.GetFromJsonAsync<Patient[]>("/api/patient/");
     }
 
 #line default
